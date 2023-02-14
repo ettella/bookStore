@@ -1,0 +1,34 @@
+{
+    "books": [
+      {
+        "id": 1,
+        "title": "The Water Liliy Pond",
+        "medNumber": "2234fds",
+        "content": "Oil on canvas"
+      },
+      {
+        "id": 2,
+        "title": "Lord Pond",
+        "medNumber": "22s34fds",
+        "content": "Oil on canvas"
+      },
+      {
+        "id": 3,
+        "title": "Rose Bud",
+        "medNumber": "22s34fds",
+        "content": "Oil on canvas"
+      },
+      {
+        "id": 4,
+        "title": "Lord wePond",
+        "medNumber": "22s34fds HH",
+        "content": "Oil on canvas"
+      },
+      {
+        "id": 5,
+        "title": "Lord of the Rings",
+        "medNumber": "22s34fdss HH",
+        "content": "Oil on canvas"
+      }
+    ]
+  }

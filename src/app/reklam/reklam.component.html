@@ -1,0 +1,11 @@
+<div class="container-fluid my-3">
+    <div class="row m-4">
+        <div class="col-xs-12" *ngFor="let sp of salesProducts">
+            <h3>Name of the product: {{sp.name}}</h3>
+            <!-- [ngClass]="{'regular': sp.sale, 'action': !sp.sale}" -->
+            <p [class.action]="sp.sale == true"> Price of the product: {{sp.price}} € </p>
+
+            <hr>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="container my-3">
+  <div class="row">
+    <table class="table table-striped">
+      <thead>
+          <th *ngFor="let head of dataHead">{{head}}</th>
+      </thead>                
+      <tbody>
+          <tr *ngFor="let rows of data">
+              <td *ngFor="let row of dataHead">
+                  {{rows[row]}}
+              </td>
+          </tr>
+      </tbody>
+  </table>
+  </div>
+</div>

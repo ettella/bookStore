@@ -1,0 +1,148 @@
+
+<div class="container">
+
+  <header class="text-center">
+    <div class="text-center my-3 img-box">
+        <img src="./../../assets/books.png.jpg" alt="books" class="img-fluid my-3 rounded col-xs-12 col-lg-6">
+    </div> 
+  
+    <div class="book-box">
+        <h1 class="my-3 ms-3">Book Store</h1>
+    </div>
+  </header>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-12">
+      <section>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad maxime quaerat et sit voluptatum dolorum cum expedita ullam omnis fugit. Voluptate minus veritatis omnis! Minus accusantium nam ullam et ex.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad maxime quaerat et sit voluptatum dolorum cum expedita ullam omnis fugit. Voluptate minus veritatis omnis! Minus accusantium nam ullam et ex.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad maxime quaerat et sit voluptatum dolorum cum expedita ullam omnis fugit. Voluptate minus veritatis omnis! Minus accusantium nam ullam et ex.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad maxime quaerat et sit voluptatum dolorum cum expedita ullam omnis fugit. Voluptate minus veritatis omnis! Minus accusantium nam ullam et ex.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad maxime quaerat et sit voluptatum dolorum cum expedita ullam omnis fugit. Voluptate minus veritatis omnis! Minus accusantium nam ullam et ex.</p>
+    </section>
+    </div>
+  </div>
+
+
+  <div class="row">
+      <section class="col-sm-6 my-2">
+        <h2 class="my-3">Story of this unique book store</h2>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste ipsam quos molestias earum cupiditate expedita ipsum perspiciatis? Deleniti mollitia laboriosam nostrum nulla quia earum! Facere sunt sed repudiandae beatae aliquid?
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam perspiciatis labore dolorem adipisci repudiandae fugit id quod dicta, officia iusto odio accusamus! Natus quidem maxime harum obcaecati delectus. Eius, nemo. Lorem ipsum dolor sit.
+      </section>
+      
+      <section class="col-sm-6 my-2">
+      <h3 class="my-3"> Other stories from our client</h3>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores inventore cum atque, rerum vel, earum itaque qui excepturi nesciunt reiciendis quod amet pariatur voluptatem tempora commodi maiores dolor, eligendi reprehenderit. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam perspiciatis labore dolorem adipisci repudiandae fugit id quod dicta, officia iusto odio accusamus! Natus quidem maxime harum obcaecati delectus. Eius, nemo. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus debitis dignissimos exercitationem at nihil eum, molestias ullam illum velit vero consequatur dolores nostrum illo nemo, beatae omnis voluptas ex unde.
+    </section>
+  </div>
+
+  <hr>
+  <app-reklam [salesProducts]="products" 
+    ><div *ngFor="let sp of products"></div>
+  </app-reklam>
+
+  <div class="rounded bg-light p-5 my-3">
+    <main class="container my-5">
+        <div class="row my-1 text-center">
+            <div class="col-12">
+                <h1>New Book:</h1>
+            </div>
+        </div>
+    
+        <section class="my-3">
+            <div class="row">
+                <form class="offset-md-2 offset-lg-3 col-12 col-md-8 col-lg-6" [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)">
+
+                  <input formControlName="id" name="id" type="hidden" id="id" />
+
+                    <div class="mb-2">
+                        <label for="title">Title:</label>
+                        <input class="form-control"
+                               type="text"
+                               id="title"
+                               name="title"
+                               placeholder="Link"
+                               required
+                               formControlName="title"
+                               [class.is-invalid]="title.touched && title.invalid"
+                            />
+                        <p *ngIf="title.hasError('required')" class="invalid-feedback" id="title">
+                          This field is required!
+                        </p>
+                    </div>
+
+                    <div class="mb-2">
+                      <label for="medNumber">Media number:</label>
+                      <input class="form-control"
+                             type="text"
+                             id="medNumber"
+                             name="medNumber"
+                             formControlName="medNumber"
+                             [class.is-invalid]="medNumber.touched && medNumber.invalid"
+                            />
+                        <p *ngIf="medNumber.hasError('required')" class="invalid-feedback" id="medNumber">
+                          This field is required!
+                        </p>
+                        <p *ngIf="medNumber.hasError('minlength')" class="invalid-feedback" id="medNumber">
+                          You have to type at least 10 character!
+                        </p>
+                        <p *ngIf="medNumber.hasError('maxlength')" class="invalid-feedback" id="medNumber">
+                          You have to type maximum 13 character!
+                        </p>
+                  </div>
+    
+                    <div class="mb-2">
+                        <label for="content">Content:</label>
+                        <textarea class="form-control"
+                               id="content"
+                               name="content"
+                               cols="10"
+                               rows="10"
+                               formControlName="content"
+                               [class.is-invalid]="content.touched && content.invalid"
+                               ></textarea>
+                        <p *ngIf="content.hasError('required')" class="invalid-feedback" id="content">
+                          This field is required!
+                        </p>
+                    </div>
+    
+                    
+                    <div class="my-4 text-center">
+                        <button class="btn btn-outline-primary px-5 py-2 btn-lg" type="submit" [disabled]="myForm.invalid"
+                         >Add Book</button>
+                         <!-- (myForm.value) -->
+                    </div>
+
+                    <div *ngIf="isSubmit == true">
+                      <ol *ngFor="let b of books; let i = index">
+                        <li>Title: {{b.title}}</li>
+                        <li>Media Number: {{b.medNumber}}</li>
+                        <li>Content: {{b.content}}</li>
+                      </ol>
+                    </div>
+
+                  </form>
+
+
+            </div>
+        </section>
+    </main>
+    
+    <section>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem atque adipisci voluptatem quam, nemo aperiam illum pariatur assumenda ab cum a quia, commodi nulla quod provident. Rem neque aut molestiae!
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem atque adipisci voluptatem quam, nemo aperiam illum pariatur assumenda ab cum a quia, commodi nulla quod provident. Rem neque aut molestiae!
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem atque adipisci voluptatem quam, nemo aperiam illum pariatur assumenda ab cum a quia, commodi nulla quod provident. Rem neque aut molestiae!
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem atque adipisci voluptatem quam, nemo aperiam illum pariatur assumenda ab cum a quia, commodi nulla quod provident. Rem neque aut molestiae!
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem atque adipisci voluptatem quam, nemo aperiam illum pariatur assumenda ab cum a quia, commodi nulla quod provident. Rem neque aut molestiae!
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem atque adipisci voluptatem quam, nemo aperiam illum pariatur assumenda ab cum a quia, commodi nulla quod provident. Rem neque aut molestiae!
+    </section>
+    </div>
+
+</div>
+
+  
+
+  
+
+

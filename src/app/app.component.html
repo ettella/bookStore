@@ -1,0 +1,39 @@
+
+<nav class="navbar navbar-expand-lg navbar-light bg-pblue">
+  <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand branding" routerLink="/">Logo</a>
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#hamburger-menu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse ms-lg-5" id="hamburger-menu">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 mt-3 mt-lg-0">
+            
+            <li class="nav-item">
+                <a class="nav-link m-1"
+                   routerLinkActive="aktiv-funkcio"
+                   [routerLink]="['home']">Home
+            </a>
+            </li>
+              <li class="nav-item">
+                  <a class="nav-link m-1"
+                     routerLinkActive="aktiv-funkcio"
+                     [routerLink]="['thriller']">Thriller
+              </a>
+              </li>
+              <li class="nav-item m-1">
+                  <a class="nav-link"
+                     [routerLink]="['krimi']" >Krimi
+                  </a>
+              </li>             
+          </ul>
+      </div>
+  </div>
+</nav>
+
+
+<router-outlet></router-outlet>
+
+
+<footer class="ps-3 navbar navbar-expand-lg navbar-light bg-light">Made by: {{ Name }}</footer>
